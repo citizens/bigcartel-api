@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'bigcartel/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "bigcartel"
+  spec.name          = "bigcartel-api"
   spec.version       = Bigcartel::VERSION
   spec.authors       = ["Dylan Montgomery"]
   spec.email         = ["mail@citizensinspace.com"]
   spec.summary       = %q{Ruby wrapper for the Bigcartel API}
-  spec.homepage      = "https://github.com/citizens/bigcartel-ruby"
+  spec.homepage      = "https://github.com/citizens/bigcartel-api"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

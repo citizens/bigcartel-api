@@ -1,13 +1,14 @@
 # Bigcartel
 
-The bigcartel gem is a ruby wrapper for interacting with the [Bigcartel API](https://github.com/Bigcartel/bigcartel-api). 
+The bigcartel-api gem is a ruby wrapper for interacting with the Bigcartel API.
+Developed for [Hipment](http://hipment.com).
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'bigcartel'
+gem 'bigcartel-api'
 ```
 
 And then execute:
@@ -16,94 +17,40 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install bigcartel
+    $ gem install bigcartel-api
 
 ## Getting Started
 
-You will need a Bigcartel API key. For instructions on finding your API key: http://help.bigcartel.com/article/76-using-the-bigcartel-api
-
+This gem requires a Bigcartel OAuth access token. There is a Bigcartel omniauth strategy here: [https://github.com/citizens/omniauth-bigcartel](https://github.com/citizens/omniauth-bigcartel)
 ## Authentication
 
 ```ruby
-Bigcartel.api_key = 'YOUR API KEY'
-```
-Alternatively you can set your API key as an environment variable:
-
-```ruby
-ENV['BIDSKETCH_API_KEY'] = 'YOUR API KEY'
-```
-## Clients
-To get all clients:
-
-```ruby
-Bigcartel::Client.all
+Bigcartel.api_key = 'YOUR ACCESS TOKEN'
 ```
 
-To get a particular client:
+## Account
+To get information about the authenticated account:
 
 ```ruby
-Bigcartel::Client.find(id)
+Bigcartel::Account.retrieve
 ```
 
-## Fees
-
-To get all fees:
+## Orders
+To get all orders:
 
 ```ruby
-Bigcartel::Fee.all
+Bigcartel::Order.all
 ```
 
-To get a particular fee:
+To get a particular order:
 
 ```ruby
-Bigcartel::Fee.find(id)
-```
-
-## Proposals
-
-To get all proposals:
-
-```ruby
-Bigcartel::Proposal.all
-```
-
-To get a particular proposal:
-
-```ruby
-Bigcartel::Proposal.find(id)
-```
-
-## Sections
-
-To get all sections
-
-```ruby
-Bigcartel::Section.all
-```
-
-To get a particular section:
-
-```ruby
-Bigcartel::Section.find(id)
-```
-
-## Templates
-
-To get all templates:
-
-```ruby
-Bigcartel::Template.all
-```
-
-To get a particular template:
-
-```ruby
-Bigcartel::Template.find(id)
+Bigcartel::Order.find(order_number)
 ```
 
 ## Contributing
 
-1. Fork it ( https://github.com/citizens/bigcartel-ruby/fork )
+1. Fork it ( https://github.com/citizens/bigcartel-api/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
