@@ -1,8 +1,8 @@
 module Bigcartel
   class BigcartelObject < RecursiveOpenStruct
     class << self
-      def all
-        resp = Bigcartel::API.get("#{root_path}")
+      def all(params = {})
+        resp = Bigcartel::API.get(root_path, params: params)
         resp['data'].map { |object| self.new(object) }
       end
 

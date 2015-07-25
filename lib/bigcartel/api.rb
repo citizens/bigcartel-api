@@ -4,12 +4,12 @@ require 'json'
 module Bigcartel
   class API
     class << self
-      def get(path)
-        normalize_response RestClient.get(api_url(path), headers)
+      def get(path, params = {})
+        normalize_response RestClient.get(api_url(path), headers.merge(params))
       end
 
-      def put(path, options = {})
-        normalize_response RestClient.put(api_url(path), options.to_json, headers.merge(content_type: 'application/vnd.api+json'))
+      def patch(path, options = {})
+        normalize_response RestClient.patch(api_url(path), options.to_json, headers.merge(content_type: 'application/vnd.api+json', accept: 'application/vnd.api+json'))
       end
 
       private
